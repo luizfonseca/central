@@ -1,4 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="untitled.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12D78" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Service" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="token" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="tasks" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Task" inverseName="service" inverseEntity="Task" syncable="YES"/>
+    </entity>
+    <entity name="Task" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="descriptionText" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="titleText" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="service" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Service" inverseName="tasks" inverseEntity="Service" syncable="YES"/>
+        <relationship name="user" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="tasks" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="User" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="tasks" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Task" inverseName="user" inverseEntity="Task" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Task" positionX="196" positionY="281" width="128" height="133"/>
+        <element name="Service" positionX="-29" positionY="279" width="128" height="88"/>
+        <element name="User" positionX="-27" positionY="405" width="128" height="88"/>
+    </elements>
 </model>
